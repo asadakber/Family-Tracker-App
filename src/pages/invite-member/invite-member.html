@@ -1,0 +1,25 @@
+<ion-header>
+
+	
+		<ion-navbar color="primary">
+				<ion-title>Invite Member</ion-title>
+			</ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+	<ion-list>
+		<ion-item>
+			<ion-icon class="owner-icon" name="contact"></ion-icon>
+			<span class="owner-name">
+				<b > {{userName}} </b>
+			</span>
+		</ion-item>
+
+				
+		
+	</ion-list>
+	<button  full ion-button  (click)="inviteMember()">Invite New Members</button>
+	<div  #map id="map"></div>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+
+		<ion-navbar color="primary">
+				<ion-title>Create Circle</ion-title>
+			</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+	<ul>
+		<li *ngFor="let item of items | async">
+			{{ item.name }}
+		</li>
+	</ul>
+
+	<div class="center-container">
+		<h4>Enter your circle name :</h4>
+	</div>
+	<ion-list class="center-container">
+
+		<ion-item>
+			<ion-input type="text" [(ngModel)]="circleName" placeholder="Enter Circle Name"></ion-input>
+		</ion-item>
+
+	</ion-list>
+	<div class="center-container">
+		<button  full  ion-button  (click)="createCircle(circleName)">CREATE</button>
+	</div>
+</ion-content>

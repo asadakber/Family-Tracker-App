@@ -1,0 +1,44 @@
+
+<ion-header>
+		<ion-navbar color="primary">
+				<ion-title>Register</ion-title>
+			</ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content  padding>
+	<div style="text-align:center;margin-top:50px;"></div>
+	<form [formGroup]="signupForm">
+	<ion-list>
+		<ion-item>
+			<ion-input  type="text" formControlName="userName" placeholder="Username"></ion-input>
+		</ion-item>
+		<ion-item  style="color : red" class="error-message" *ngIf="signupForm.controls.userName?.errors?.required && signupForm.controls.userName.dirty">
+			username is required
+		</ion-item>
+		
+		<ion-item>
+			<ion-input  type="text" formControlName="userEmail" placeholder="Email"></ion-input>
+		</ion-item>
+		<ion-item  class="error-message" *ngIf="!signupForm.controls.userEmail.valid  && signupForm.controls.userEmail.dirty">
+			<p style="color : red">Please enter a valid email.</p>
+		</ion-item>
+
+		<ion-item>
+			<ion-input  type="password" formControlName="userPassword" placeholder="Password"></ion-input>
+		</ion-item>
+		<ion-item  class="error-message" *ngIf="signupForm.controls.userPassword?.errors?.minlength  && signupForm.controls.userPassword.dirty">
+			<p style="color : red">Your password needs more than 6 characters.</p>
+		</ion-item>
+		<ion-item  style="color : red" class="error-message" *ngIf="signupForm.controls.userPassword?.errors?.required && signupForm.controls.userPassword.dirty">
+			Password is required
+		</ion-item>
+
+		<p> already login? </p>
+		<div style="margin-top:10px;"><button  full ion-button [disabled]="!this.signupForm.valid" (click)="signup()">Signup</button></div>
+		
+	</ion-list>
+</form>
+</ion-content>

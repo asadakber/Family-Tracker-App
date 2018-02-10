@@ -1,0 +1,37 @@
+<ion-header>
+
+
+		<ion-navbar color="primary">
+				<ion-title>Family Tracker App</ion-title>
+			</ion-navbar>
+			<ion-buttons end>
+				<button ion-button clear (click)="signout()">Signout</button>
+			</ion-buttons>
+		
+		
+			
+			
+
+</ion-header>
+<ion-content  padding>
+
+	<div class="icon-container">
+
+		<button  full ion-button (click)="createCircle()">Create Circle</button>
+	</div>
+	<ion-list *ngIf="isGroupsList">
+		<ion-item-group >
+			<ion-item-divider  color="light">Admin groups</ion-item-divider>
+			<button  ion-item (click)="groupSelected(admin)" *ngFor="let admin of adminGroupArray">{{admin.group}}</button>
+
+			<ion-item-divider  color="light">Others Groups</ion-item-divider>
+
+			<button  ion-item block (click)="othersGroupSelected(others)" *ngFor="let others of othersGroupArray">{{others.group}}</button>
+		</ion-item-group>
+
+	</ion-list>
+
+
+	<div  *ngIf="isShowMap" #map id="map"></div>
+
+</ion-content>
